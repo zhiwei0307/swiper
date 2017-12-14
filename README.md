@@ -37,27 +37,9 @@
 </view>
 
 ```
-```javascript
-var app = getApp()
-Page({
-  data: {
-    curIndex: 0,  //当前显示的view下标
-    swiperList: [1, 2, 3, 4, 5, 6, 7, 8, 9], //轮播数据列表
-    winWidth: 0,  //设备宽度；
-    winHeight: 0,   //设备高度；
-    
-    itemWidth: 0, //单个轮播图swiper-item的宽度；
-    itemHeight: 0,//单个轮播图swiper-item的高度；
-    allWidth: 0,  //轮播展示 swiper的总宽度；
-    scale: 0.7,   //  缩放大小倍数；
 
-    startClinetX: '', //触摸开始位置；
-    startTimestamp: '', //触摸开始时间；
-    
-    translateDistance: 0,//动画移动的 距离；
-    animationToLarge: {}, //从小变大的动画；
-    animationToSmall: {},
-  },
+主要事件；
+```javascript
 
   //触摸开始的事件
   swiperTouchstart: function (e) {
@@ -130,30 +112,5 @@ Page({
     })
   },
 
-  onLoad: function () {
-    var that = this
-    
-    wx.getSystemInfo({
-      success: function (res) {
-        let w = res.windowWidth,h = res.windowHeight;
-        let allWidth =  that.data.swiperList.length  * (w * 0.5 );
-
-        that.setData({
-          winWidth: w,
-          winHeight: h, 
-          itemWidth: w*0.5,
-          allWidth: allWidth
-        })
-      },
-    })
-    this.animation = wx.createAnimation({
-      transformOrigin: "50% 50%",
-      duration: 500,
-      timingFunction: "ease-out",
-      delay: 0
-    })
-  },
-
-})
 ```
 
