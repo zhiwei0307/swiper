@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<!-- 备用right: {{(allWidth-winWidth)/2}}px -->
+<view class="show_swiper" style='width: {{winWidth}}px;height: {{winHeight}}px;'>
+  <view class='show_swiper_list'
+        bindtouchstart='swiperTouchstart'
+        bindtouchmove='swiperTouchmove'
+        bindtouchend='swiperTouchend'
+        style='width: {{allWidth}}px;position: relative;left: {{(winWidth-itemWidth)/2}}px;'>
+
+    <block wx:for="{{swiperList}}">
+       <view class='swiper_item' 
+            data-curid="{{curIndex}}" 
+            data-index='{{index}}' 
+            animation="{{curIndex == index? animationToLarge : animationToSmall}}" 
+            style='width: {{itemWidth}}px;height: {{itemWidth*1.4}}px;transform: scale({{curIndex == index ? 1 : scale}});-'>
+
+          {{item}}
+          
+      </view>
+    </block>
+
+  </view>
+</view>
